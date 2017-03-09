@@ -1,0 +1,72 @@
+﻿@model IEnumerable<YPTriMembership.Models.Event>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Event Listings</h2>
+
+<p>
+    @Html.ActionLink("Create New Event", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Title)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Street_Address)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.State_Abr)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Zip_Code)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DateTime)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Description)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Member_Number)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Title)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Street_Address)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.State_Abr)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Zip_Code)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DateTime)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Description)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Member_Number)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.Event_id }) |
+            @Html.ActionLink("Details", "Details", new { id=item.Event_id }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.Event_id })
+        </td>
+    </tr>
+}
+
+</table>
+<div>
+    @Html.ActionLink("Back to Admin Portal", "Index", "Admin")
+</div>

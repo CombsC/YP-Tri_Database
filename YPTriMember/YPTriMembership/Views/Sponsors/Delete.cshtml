@@ -1,0 +1,80 @@
+﻿@model YPTriMembership.Models.Sponsor
+
+@{
+    ViewBag.Title = "Delete " + Model.Company_Name + "?";
+}
+
+<h2>@ViewBag.Title</h2>
+
+<h3>Are you sure you want to delete @Model.Company_Name?</h3>
+<div>
+ 
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Company_Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Company_Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Phone)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Phone)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Street_Number)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Street_Number)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Street_Address)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Street_Address)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.State_Abr)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.State_Abr)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Zip_Code)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Zip_Code)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Email)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Email)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

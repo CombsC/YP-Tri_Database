@@ -1,0 +1,77 @@
+﻿@model IEnumerable<YPTriMembership.Models.Member>
+
+@{
+    ViewBag.Title = "Admin Portal Home";
+}
+
+<div class="jumbotron jumbotron-fluid">
+    <h2>Welcome, @User.Identity.Name!</h2>
+    <p class="lead">Welcome to the Administrator's Portal!</p>
+    <hr />
+    <p style="font-size:18px">From here you can manage all of the YPTC's members with ease. Register New Members, edit member information, delete members, preform searches for members, edit and create events edit and create Sponsors and Vendors, and much more!</p>
+</div>
+
+<div class="row">
+    <div class="col-sm-4">
+        <h2>Manage Events</h2>
+        <p>Access your profile, edit your information, check up on events and find other professionals in your field!</p>
+        <p><a class="btn btn-primary" href="/Events/Index">Manage Events &raquo;</a></p>
+    </div>
+    <div class="col-sm-4">
+        <h2>Manage Sponsors</h2>
+        <p>YPTC administrators can access the admin portal here. Member management, membership reports, and admin controls.</p>
+        <p><a class="btn btn-primary" href="/Sponsors/Index">Manage Sponsors &raquo;</a></p>
+    </div>
+    <div class="col-sm-4">
+        <h2>Manage Vendors</h2>
+        <p>Access your profile, edit your information, check up on events and find other professionals in your field!</p>
+        <p><a class="btn btn-primary" href="/Vendors/Index">Manage Vendors &raquo;</a></p>
+    </div>
+    <div class="col-sm-4">
+        <h2>Manage Skills</h2>
+        <p>Access your profile, edit your information, check up on events and find other professionals in your field!</p>
+        <p><a class="btn btn-primary" href="/Skills/Index">Manage Skills &raquo;</a></p>
+    </div>
+    <div class="col-sm-4">
+        <h2>Manage Hobbies</h2>
+        <p>Access your profile, edit your information, check up on events and find other professionals in your field!</p>
+        <p><a class="btn btn-primary" href="/Hobbies/Index">Manage Hobbies &raquo;</a></p>
+    </div>
+    <div class="col-sm-4">
+        <h2>View Applicants</h2>
+        <p>See who has applied to the YPTC!</p>
+        <p><a class="btn btn-primary" href="/Admin/Applicants">View Applicants &raquo;</a></p>
+    </div>
+
+
+</div>
+
+<hr />
+<p>Search Members by Last Name:</p>
+<!--
+<select class="form-group form-control " name="option">
+    <option value="" disabled selected>Search By Options</option>
+    <option value="First_Name">First Name</option>
+    <option value="State">State</option>
+    <option value="Email">Email</option>
+    <option value="gender">Gender</option>
+    <option value="Occupation">Occupation</option>
+</select>
+-->
+
+<form method="get" action="@Url.Action("Index")" id="searchTerm"
+      data-members-target="#memberList">
+    <input type="search" name="searchTerm" />
+    <input type="submit" value="Search" />
+</form>
+
+<hr />
+
+<div id="memberList">
+    @Html.Partial("_MemberList", Model)
+</div>
+
+
+@section Scripts{
+<script src="~/Scripts/adminIndex.js"></script>
+    }
